@@ -1,0 +1,47 @@
+    #map {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        overflow: hidden;
+    }
+    
+    .background {
+        fill: none;
+        pointer-events: all;
+    }
+    
+    #countries,
+    #states {
+        fill: rgb(240, 113, 113, 0.5);
+        stroke: #fff;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+    }
+    
+    #countries .active,
+    #states .active {
+        fill: rgb(255, 0, 0);
+    }
+    
+    #countries .active:hover,
+    #states .active:hover {
+        fill: rgb(255, 0, 0);
+    }
+    
+    .province:hover {
+        fill: rgb(255, 0, 0);
+    }
+    
+    #cities {
+        stroke-width: 0;
+    }
+    
+    .city {
+        fill: #345;
+        stroke: #fff;
+    }
+    
+    pre.prettyprint {
+        border: 1px solid #ccc;
+        margin-bottom: 0;
+        padding: 9.5px;
+    }

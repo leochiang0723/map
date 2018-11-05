@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>新增情報資訊</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Sign up and Subscribe Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+
+    <link href="stylesheets/style.css" rel='stylesheet' type='text/css' />
+    <link rel="icon" href="images/title.png" sizes="16x16" type="image/png">
+    <link href="stylesheets/font-awesome.css" rel="stylesheet">
+
+    <!-- Font-Awesome-Icons-CSS -->
+    <link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700&amp;subset=devanagari,latin-ext" rel="stylesheet">
+
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(c) {
+            $('.alert-close').on('click', function(c) {
+                $('.main-agile').fadeOut('slow', function(c) {
+                    $('.main-agile').remove();
+                });
+            });
+        });
+    </script>
+    <style>
+        .content-wthree img {
+            width: 380px!important;
+        }
+        
+        .text-spacing {
+            letter-spacing: 2px;
+        }
+        
+        p {
+            font-family: 'Hind', sans-serif;
+        }
+        
+        select {
+            color: white;
+        }
+        
+        select option {
+            color: black;
+        }
+        
+        .styled-select {
+            background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+            height: 29px;
+            overflow: hidden;
+            width: 268px;
+            margin-left: 20px;
+        }
+        
+        .styled-select select {
+            background: transparent;
+            border: 1px solid white;
+            font-size: 14px;
+            height: 29px;
+            padding: 5px;
+            /* If you add too much padding here, the options won't show in IE */
+            width: 268px;
+        }
+        
+        .styled-select.slate {
+            background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+            height: 34px;
+            width: 270px;
+        }
+        
+        .styled-select.slate select {
+            border: 1px solid #ccc;
+            font-size: 16px;
+            height: 34px;
+            width: 268px;
+        }
+        
+        .btn-return {
+            color: white;
+            padding: 5px 5px 5px 5px;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+            background: rgb(28, 184, 65);
+            /* this is a green */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="/">蒐集系統</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				  <span class="navbar-toggler-icon"></span>
+				</button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#page-top">首頁</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#about">各省資料</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#services">新增/匯入資料</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav> -->
+
+    <div class="layer">
+        <h1>新增資訊</h1>
+
+        <div style="width:150px;margin:auto;background-color:rgba(0, 0, 0, 0.507);padding:5px 5px 5px 5px">
+            <a href="/">
+                <h3 style="color:white;text-align: center;font-size: 18px">返回首頁</h3>
+            </a>
+        </div>
+
+
+        <div class="main-agile1">
+            <div class="w3layouts-main">
+                <h2>資訊表單</h2>
+                <h3>請依規定填寫</h3>
+                <form action="/uploadinfo" method="post" encType="multipart/form-data">
+                    <div class="custom-select" style="width:200px;margin-top:20px">
+                        <div class="styled-select black rounded">
+                            <select name="province">
+													<option value="" disabled selected>選擇省份</option>
+													<option value="廣東省">廣東省</option>
+													<option value="浙江省">浙江省</option>
+													<option value="江蘇省">江蘇省</option>
+													<option value="山東省">山東省</option>
+													<option value="四川省">四川省</option>
+													<option value="福建省">福建省</option>
+													<option value="雲南省">雲南省</option>
+													<option value="海南省">海南省</option>
+													<option value="河南省">河南省</option>
+													<option value="湖南省">湖南省</option>
+													<option value="河北省">河北省</option>
+													<option value="湖北省">湖北省</option>
+													<option value="安徽省">安徽省</option>
+													<option value="陝西省">陝西省</option>
+													<option value="江西省">江西省</option>
+													<option value="貴州省">貴州省</option>
+													<option value="遼寧省">遼寧省</option>
+													<option value="山西省">山西省</option>
+													<option value="黑龍江省">黑龍江省</option>
+													<option value="甘肅省">甘肅省</option>
+													<option value="吉林省">吉林省</option>
+													<option value="青海省">青海省</option>
+													
+											</select>
+                        </div>
+
+                    </div>
+                    <div class="custom-select" style="width:200px;margin-top:20px">
+                        <div class="styled-select black rounded">
+                            <select name="category">
+														<option value="" disabled selected>選擇類別</option>
+														<option value="金融">金融</option>
+														<option value="交通">交通</option>
+														<option value="能源">能源</option>
+														<option value="水資源">水資源</option>
+														<option value="資通訊">資通訊</option>
+														<option value="其他">其他</option>
+														
+												</select>
+                        </div>
+
+                    </div>
+                    <div class="email">
+                        <input placeholder="機構名稱 i.e:廣東車站 ..." name="infrastructure" type="text" required=" ">
+
+                    </div>
+                    <div class="email">
+                        <input placeholder="主要業務" name="main_act" type="text" required=" ">
+
+                    </div>
+                    <div class="email">
+                        <input placeholder="攻擊後或封鎖後效益" name="effect" type="text" required=" ">
+
+                    </div>
+                    <div class="email">
+                        <input placeholder="周圍關鍵設施" name="nearby" type="text" required=" ">
+
+                    </div>
+                    <div style="text-align:left">
+                        <p style="color:white;margin-bottom:10px">相對價值</p>
+                        <input type="radio" name="value" value="高"><span>高</span>
+                        <input type="radio" name="value" value="中"><span>中</span>
+                        <input type="radio" name="value" value="低" checked="checked"><span>低</span>
+                    </div>
+                    <div class="email">
+                        <input placeholder="戰具手法" name="method" type="text" required=" ">
+                    </div>
+                    <div class="email">
+                        <input placeholder="我方行動工具選項" name="action_opt" type="text" required=" ">
+
+                    </div>
+                    <p style="color:white;text-align: left">上傳圖片區:<input style="width:180px;margin-left: 20px" type="file" name="imgtoupload" accept="image/x-png,image/gif,image/jpeg" required/></p>
+                    <p style="color:white;text-align: left"><span style="color:red;font-size: 20px;">!!!!!! </span>請依右邊圖示截圖，檔名請詳細命名，如:廣東_廣東車站.PNG...etc</p>
+                    <p style="color:white;text-align: left">如遇相同圖片名稱，將會導致上傳失敗!<span style="color:red;font-size: 20px;">!!!!!! </span></p>
+                    <div style="text-align:left">
+                        <p style="color:white;margin-top:20px;margin-bottom:10px">制壓作戰效益</p>
+                        <input type="checkbox" name="delay" value="1"><span class="text-spacing">遲滯</span>
+                        <input type="checkbox" name="paralyze" value="1"><span class="text-spacing">癱瘓</span>
+                        <input type="checkbox" name="restriction" value="1"><span class="text-spacing">限制</span>
+                    </div>
+                    <input type="submit" value="填寫完畢">
+                    <!-- <input type="submit" value="Get Started" name="login"> -->
+                </form>
+            </div>
+            <div class="main-agile">
+                <div class="alert-close"> </div>
+                <div class="content-wthree">
+                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                    <h2>圖片上傳範例</h2>
+                    <p style="margin-bottom:20px;">以下為範例圖片</p>
+                    <img src="images/gd2.png">
+                </div>
+            </div>
+            <div class="clear "></div>
+        </div>
+        <div class="footer-w3l ">
+            <p class="agileinfo "> &copy; 2018技術支援課</p>
+        </div>
+    </div>
+
+</body>
+
+
+</html>

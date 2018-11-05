@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/title.png" sizes="16x16" type="image/png">
+
+    <title>資訊網</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Custom fonts for this template -->
+    <!-- <link href="stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="stylesheets/clean-blog.min.css" rel="stylesheet">
+    <style>
+        table {
+            text-align: center;
+            font-size: 16px;
+            width: 100%;
+        }
+        
+        td {
+            width: 100px;
+        }
+        
+        .container {
+            width: 100%;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .return-btn {
+            text-align: center;
+            width: 150px;
+            background: #76B3FA;
+            border-radius: 50px;
+            padding: 10px 50px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        
+        .gray {
+            background: rgb(192, 192, 192);
+        }
+        
+        .gray:active {
+            background: #b9b9b9;
+        }
+        
+        .return-btn:hover {
+            text-decoration: none;
+        }
+        
+        .modal-body>p {
+            margin-top: 0;
+        }
+        
+        .dot {
+            height: 25px;
+            width: 25px;
+            color: grey;
+            border-radius: 50%;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 20px;
+        }
+        
+        .yellow {
+            background-color: yellow;
+        }
+        
+        .green {
+            background-color: green;
+        }
+        
+        .red {
+            background-color: red;
+        }
+        
+        .modal-body img {
+            width: 100%;
+        }
+        
+        .modal-content {
+            width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="/">情報蒐集系統</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/map">返回地圖瀏覽</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/">返回各省瀏覽</a>
+                    </li>
+                    <% if(auth_check) {%>
+                        <li class="nav-item">
+                            <form id='logout' action="/logout" method="get">
+                                <a href="javascript:{}" style="color:rgba(255, 255, 255, .7)" class="nav-link js-scroll-trigger" onclick="document.getElementById('logout').submit(); return false;">登出</a>
+                            </form>
+                        </li>
+
+                        <%} else{%>
+                            <li class="nav-item ">
+                                <a class="nav-link js-scroll-trigger " href="/login ">登入</a>
+                            </li>
+                            <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('images/test.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>各省情報</h1>
+                        <br>
+                        <span class="subheading">資通電軍網路戰聯隊</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div style="text-align:center;">
+        <table>
+
+            <tr>
+                <th>筆數</th>
+                <th>省份</th>
+                <th>類別</th>
+                <th>名稱</th>
+                <th>主要業務</th>
+                <th>效益</th>
+                <th>關鍵設施</th>
+                <th>相對價值</th>
+                <th>戰具手法</th>
+                <th>我方行動工具選項</th>
+                <th>詳細資料</th>
+                <%if(auth_check==null){}else if(auth_check[0].auth_level>0){%>
+                    <!-- TOM -->
+                    <th>修改資料</th>
+                    <th>刪除資料</th>
+                    <%}%>
+                        <!-- <th>遲滯</th>
+                <th>癱瘓</th>
+                <th>限制</th> -->
+
+
+            </tr>
+            <%  for ( var i = 0 ; i < data.length ; i++){  %>
+                <tr>
+                    <td>
+                        <%= i+1  %>
+                    </td>
+                    <td>
+                        <%= data[i].province  %>
+                    </td>
+                    <td>
+                        <%= data[i].category  %>
+                    </td>
+                    <td>
+                        <%= data[i].infrastructure  %>
+                    </td>
+                    <td>
+                        <%= data[i].main_act  %>
+                    </td>
+                    <td>
+                        <%= data[i].effect  %>
+                    </td>
+                    <td>
+                        <%= data[i].nearby  %>
+                    </td>
+                    <td>
+                        <%= data[i].value  %>
+                    </td>
+                    <td>
+                        <%= data[i].method  %>
+                    </td>
+                    <td>
+                        <%= data[i].action_opt  %>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<%= i %>">
+                           詳細資料
+                          </button>
+                    </td>
+                    <!-- TOM -->
+                    <%if(auth_check==null){}
+						else{
+						var auth_enable=false;
+						if(auth_check[0].auth_level==1){auth_enable=true;}
+						else if(auth_check[0].auth_level==2){
+							if(auth_check[0].auth_group==data[i].user_group) auth_enable=true;
+						}
+						else if(auth_check[0].auth_level==3){
+							if(auth_check[0].id==data[i].user_id) auth_enable=true;
+						}
+						if(auth_enable){%>
+                        <!-- TOM -->
+                        <td>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal_2<%= i %>">
+                           修改資料
+                          </button>
+                        </td>
+                        <td>
+                            <form action="/delete_info" method="POST" encType="multipart/form-data">
+                                <input type="hidden" name="id" value="<%= data[i].id %>">
+                                <button class="btn" type="submit"><i class="fa fa-trash"></i> 刪除該筆</button>
+                            </form>
+                        </td>
+
+                        <%}else{%>
+                            <td style="color:red; font-weight: bold">
+                                沒有修改權限
+                            </td>
+                            <td style="color:red; font-weight: bold">
+                                沒有刪除權限
+                            </td>
+                            <%} }%>
+
+                </tr>
+                <% } %>
+        </table>
+
+    </div>
+
+    <hr>
+    <div class="container">
+        <br>
+        <a class="return-btn gray" href="javascript:history.back()">返回上頁 </a>
+    </div>
+    <!-- Modal -->
+    <%  for ( var i = 0 ; i < data.length ; i++){  %>
+        <div class="modal fade" id="exampleModal<%= i %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            <%= data[i].province  %>
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            類別:
+                            <%= data[i].category  %>
+                        </p>
+                        <p>
+                            機構名稱:
+                            <%= data[i].infrastructure  %>
+                        </p>
+                        <p>
+                            效益:
+                            <%= data[i].effect  %>
+                        </p>
+                        <p>
+                            關鍵設施:
+                            <img src="<%= data[i].img_url %>" />
+                            <!-- <%= data[i].nearby  %> -->
+                        </p>
+                        <p>
+                            我方行動工具選項:
+                            <%= data[i].action_opt  %>
+                        </p>
+
+                        <h5 style="text-align:center">制壓作戰效益</h5>
+                        <div class="row">
+                            <div class="col-4">
+                                <% if(data[i].delay == 1){ %>
+                                    <p>遲滯:<span class="dot green"></span></p>
+                                    <% } else{ %>
+                                        <p>遲滯:<span class="dot"></span></p>
+                                        <% } %>
+                            </div>
+                            <div class="col-4">
+                                <% if(data[i].paralyze == 1){ %>
+                                    <p>癱瘓:<span class="dot yellow"></span></p>
+                                    <% } else{ %>
+                                        <p>癱瘓:<span class="dot"></span></p>
+                                        <% } %>
+                            </div>
+                            <div class="col-4">
+                                <% if(data[i].restriction == 1){ %>
+                                    <p>限制:<span class="dot red"></span></p>
+                                    <% } else{ %>
+                                        <p>限制:<span></span></p>
+                                        <% } %>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">返回</button>
+                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <% } %>
+            <!-- Modal 2 -->
+            <!-- TOM -->
+            <%  for ( var i = 0 ; i < data.length ; i++){  %>
+                <%if(auth_check==null){}
+	else{
+		var auth_enable=false;
+		if(auth_check[0].auth_level==1){auth_enable=true;}
+		else if(auth_check[0].auth_level==2){
+			if(auth_check[0].auth_group==data[i].user_group) auth_enable=true;
+		}
+		else if(auth_check[0].auth_level==3){
+			if(auth_check[0].id==data[i].user_id) auth_enable=true;
+		}
+		if(auth_enable){%>
+                    <div class="modal fade" id="exampleModal_2<%= i %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">
+                                        <%= data[i].province  %>
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                                </div>
+                                <form action="/update_info" method="POST" encType="multipart/form-data">
+                                    <div class="modal-body">
+                                        <input type="hidden" name="id" value='<%= data[i].id%>'>
+                                        <p>
+                                            機構名稱:
+                                            <input name="infrastructure" placeholder='<%= data[i].infrastructure  %>' value='<%= data[i].infrastructure  %>'>
+                                        </p>
+                                        <p>
+                                            類別:
+                                            <select name="category">
+								<option value="" disabled="" <%if(!data[i].category)	{%> selected="true" <%}%>	>選擇類別</option>
+								<option value="金融"  <%if(data[i].category=="金融")	{%> selected="true" <%}%>	>金融</option>
+								<option value="交通"  <%if(data[i].category=="交通")	{%> selected="true" <%}%>	>交通</option>
+								<option value="能源"  <%if(data[i].category=="能源")	{%> selected="true" <%}%>	>能源</option>
+								<option value="水資源"<%if(data[i].category=="水資源")	{%> selected="true" <%}%>	>水資源</option>
+								<option value="資通訊"<%if(data[i].category=="資通訊")	{%> selected="true" <%}%>	>資通訊</option>
+								<option value="其他"  <%if(data[i].category=="其他")	{%> selected="true" <%}%>	>其他</option>
+							</select>
+                                        </p>
+                                        <p>
+                                            主要業務:
+                                            <input name="main_act" placeholder='<%= data[i].main_act  %>' value='<%= data[i].main_act  %>'>
+                                        </p>
+                                        <p>
+                                            效益:
+                                            <input name="effect" placeholder='<%= data[i].effect  %>' value='<%= data[i].effect  %>'>
+                                        </p>
+                                        <p>
+                                            關鍵設施:
+                                            <input name="nearby" placeholder='<%= data[i].nearby  %>' value='<%= data[i].nearby  %>'>
+                                        </p>
+                                        <p>
+                                            修改圖片上傳:
+                                            <input style="width:100%;margin-left: 20px" type="file" name="imgtoupload" accept="image/x-png,image/gif,image/jpeg" />
+                                        </p>
+                                        <p>
+                                            相對價值:
+                                            <input type="radio" name="value" value="高" <%if(data[i].value=="高" ){%>checked="checked"
+                                            <%}%>><span>高</span>
+                                                <input type="radio" name="value" value="中" <%if(data[i].value=="中" ){%>checked="checked"
+                                                <%}%>><span>中</span>
+                                                    <input type="radio" name="value" value="低" <%if(data[i].value=="低" ){%>checked="checked"
+                                                    <%}%>><span>低</span>
+                                        </p>
+                                        <p>
+                                            戰爭手法:
+                                            <input name="method" placeholder='<%= data[i].method  %>' value='<%= data[i].method  %>'>
+                                        </p>
+                                        <p>
+                                            我方行動工具選項:
+                                            <input name="action_opt" placeholder='<%= data[i].action_opt  %>' value='<%= data[i].action_opt  %>'>
+                                        </p>
+
+
+                                        <p>
+                                            制壓作戰效益:
+                                            <input type="checkbox" name="delay" value="1" <%if(data[i].delay){%>checked="checked"
+                                            <%}%>><span class="text-spacing">遲滯</span>
+                                                <input type="checkbox" name="paralyze" value="1" <%if(data[i].paralyze){%>checked="checked"
+                                                <%}%>><span class="text-spacing">癱瘓</span>
+                                                    <input type="checkbox" name="restriction" value="1" <%if(data[i].restriction){%>checked="checked"
+                                                    <%}%>><span class="text-spacing">限制</span>
+                                        </p>
+
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-secondary">上傳</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">返回</button>
+                                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                    <% } } }%>
+
+                        <!-- Footer -->
+                        <footer>
+                            <div class="container ">
+                                <div class="row ">
+                                    <div class="col-lg-8 col-md-10 mx-auto ">
+                                        <p class="copyright text-muted ">Copyright &copy; Ministry Of National Defense 2018</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+
+
+                        <!-- Bootstrap core JavaScript -->
+                        <script src="javascripts/jquery.min.js "></script>
+                        <script src="javascripts/bootstrap.bundle.min.js "></script>
+
+                        <!-- Custom scripts for this template -->
+                        <script src="javascripts/clean-blog.min.js "></script>
+
+</body>
+
+</html>

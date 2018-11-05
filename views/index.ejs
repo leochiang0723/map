@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/title.png" sizes="16x16" type="image/png">
+
+    <title>蒐集系統</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="stylesheets/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="stylesheets/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="stylesheets/creative.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="/">蒐集系統</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#page-top">首頁</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#about">各省資料</a>
+                    </li>
+                    <% if(auth_check) {%>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#services">Excel-新增/匯入資料</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="keyin">表單單筆-新增/匯入資料</a>
+                        </li>
+                        <%}%>
+                            <% if(auth_check) {%>
+
+                                <li class="nav-item">
+                                    <form id='logout' action="/logout" method="get">
+                                        <a href="javascript:{}" style="color:rgba(255, 255, 255, .7)" class="nav-link js-scroll-trigger" onclick="document.getElementById('logout').submit(); return false;">登出</a>
+                                    </form>
+                                </li>
+
+                                <%} else{%>
+                                    <li class="nav-item ">
+                                        <a class="nav-link js-scroll-trigger " href="/login ">登入</a>
+                                    </li>
+                                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="masthead text-center text-white d-flex ">
+        <div class="container my-auto ">
+            <div class="row ">
+                <div class="col-lg-10 mx-auto ">
+                    <h1 class="text-uppercase ">
+                        <strong>
+                                技術支援課
+                        </strong>
+                    </h1>
+                    <hr>
+                </div>
+                <div class="col-lg-8 mx-auto ">
+                    <p class="text-faded mb-5 ">此網頁將提供中國大陸各省情蒐資料，由技術支援課提供。</p>
+                    <a class="btn btn-primary btn-xl js-scroll-trigger " href="#about ">開始瀏覽</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-primary " id="about">
+        <div class="text-center ">
+            <h2 class="section-heading text-white section-font ">各省資料</h2>
+            <hr class="light my-4 ">
+            <div class="container ">
+                <h1></h1>
+                <div class="row ">
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=廣東省 ">
+                            <div class="centered ">廣東省</div>
+                        </a>
+                        <img src="images/1.jpg ">
+
+                    </div>
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=浙江省 ">
+                            <div class="centered ">浙江省</div>
+                        </a>
+                        <img src="images/2.jpg ">
+                    </div>
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=江蘇省 ">
+                            <div class="centered ">江蘇省</div>
+                        </a>
+                        <img src="images/3.jpg ">
+                    </div>
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=山東省 ">
+                            <div class="centered ">山東省</div>
+                        </a>
+                        <img src="images/4.jpg ">
+                    </div>
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=四川省 ">
+                            <div class="centered ">四川省</div>
+                        </a>
+                        <img src="images/panda.jpg ">
+                    </div>
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=福建省 ">
+                            <div class="centered ">福建省</div>
+                        </a>
+                        <img src="images/6.jpg ">
+                    </div>
+                </div>
+                <div class="row top-30 ">
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=雲南省 ">
+                            <div class="centered ">雲南省</div>
+                        </a>
+                        <img src="images/7.jpg ">
+                    </div>
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=海南省 ">
+                            <div class="centered ">海南省</div>
+                        </a>
+                        <img src="images/8.jpg ">
+                    </div>
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=河南省 ">
+                            <div class="centered ">河南省</div>
+                        </a>
+                        <img src="images/9.jpeg ">
+                    </div>
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=湖南省 ">
+                            <div class="centered ">湖南省</div>
+                        </a>
+                        <img src="images/10.jpeg ">
+                    </div>
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=河北省 ">
+                            <div class="centered ">河北省</div>
+                        </a>
+                        <img src="images/11.jpg ">
+                    </div>
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=湖北省 ">
+                            <div class="centered ">湖北省</div>
+                        </a>
+                        <img src="images/12.jpg ">
+                    </div>
+                </div>
+                <div class="row top-30 ">
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=安徽省 ">
+                            <div class="centered ">安徽省</div>
+                        </a>
+                        <img src="images/13.jpg ">
+                    </div>
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=陝西省 ">
+                            <div class="centered ">陝西省</div>
+                        </a>
+                        <img src="images/14.jpeg ">
+                    </div>
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=江西省 ">
+                            <div class="centered ">江西省</div>
+                        </a>
+                        <img src="images/15.jpg ">
+                    </div>
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=貴州省 ">
+                            <div class="centered ">貴州省</div>
+                        </a>
+                        <img src="images/16.jpg ">
+                    </div>
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=遼寧省 ">
+                            <div class="centered ">遼寧省</div>
+                        </a>
+                        <img src="images/17.png ">
+                    </div>
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=山西省 ">
+                            <div class="centered ">山西省</div>
+                        </a>
+                        <img src="images/18.jpg ">
+                    </div>
+                </div>
+                <div class="row top-30 ">
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=黑龍江省 ">
+                            <div class="centered ">黑龍江省</div>
+                        </a>
+                        <img src="images/19.jpg ">
+                    </div>
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=甘肅省 ">
+                            <div class="centered ">甘肅省</div>
+                        </a>
+                        <img src="images/20.jpeg ">
+                    </div>
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=吉林省 ">
+                            <div class="centered ">吉林省</div>
+                        </a>
+                        <img src="images/21.jpg ">
+                    </div>
+                    <div class="col-2 show-b ">
+                        <a href="/info?area=青海省 ">
+                            <div class="centered ">青海省</div>
+                        </a>
+                        <img src="images/22.jpg ">
+                    </div>
+
+                </div>
+            </div>
+            <a class="btn btn-light btn-xl js-scroll-trigger top-30 " href="#services ">新增情報/資訊</a>
+        </div>
+
+    </section>
+    <% if (auth_check == null){ %>
+        <section></section>
+        <% } else{ %>
+            <section id="services">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h2 class="section-heading ">新增/匯入情報</h2>
+                            <hr class="my-4 ">
+                            <div style="text-align: left ">
+                                <h3>上傳格式及規範 : </h3>
+                                <p>上傳檔案請以Excel檔案為主，格式請依照下方圖片範例。從A ~ L 依序為:省份,類別,名稱,主要業務,效益,關鍵設施,相對價值,戰具手法,我方行動工具選項,遲滯,癱瘓,限制 。共計12欄位
+                                </p>
+                                <p><span style="color:red; ">!!! 注意 !!!</span><br>1.遲滯,癱瘓,限制 此三個欄位請以 0 或 1 作為標記，0 為否 1 為是。<br>2.檔名請一律以 <span style="color:red ">info.xlsx</span>作為檔名，否則系統無法做上傳動做 !
+                                </p>
+                                <p>超出的欄位資料將不被存取，請依上述格式進行資料繳交，謝謝合作!</p>
+                            </div>
+                            <img src="images/sample.png " width="100%; ">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="container ">
+                    <div class="row ">
+
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto text-center">
+                            <h3>資料上傳區</h3>
+                            <hr class="my-4 ">
+                            <form class="top-30" ref='uploadForm' id='uploadForm' action='/fileupload' method='post' encType="multipart/form-data">
+                                <input type="file" name="filetoupload" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" required>
+                                <input type='submit' value='Excel上傳!' />
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <% } %>
+
+                <footer>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-10 mx-auto " style="text-align:center">
+                                <p class="copyright text-muted ">Copyright &copy; Ministry Of National Defense 2018</p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <script>
+                    function myFunction() {
+                        var x = document.getElementById("myFile ").required;
+                        document.getElementById("demo ").innerHTML = x;
+                    }
+                </script>
+
+                <!-- Bootstrap core JavaScript -->
+                <script src="javascripts/jquery.min.js "></script>
+                <script src="javascripts/bootstrap.bundle.min.js "></script>
+
+                <!-- Plugin JavaScript -->
+                <script src="javascripts/jquery.easing.min.js "></script>
+                <script src="javascripts/scrollreveal.min.js "></script>
+                <script src="javascripts/jquery.magnific-popup.min.js "></script>
+
+                <!-- Custom scripts for this template -->
+                <script src="javascripts/creative.min.js "></script>
+
+</body>
+
+</html>

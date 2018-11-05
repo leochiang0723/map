@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheets/map.css" rel="stylesheet">
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
+
+    <style>
+        div.tooltip {
+            position: absolute;
+            text-align: center;
+            width: 160px;
+            height: 50px;
+            padding: 5px 5px 20px 5px;
+            font: 16px sans-serif;
+            background: lightsteelblue;
+            border: 0px;
+            border-radius: 8px;
+            pointer-events: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">首頁</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+  
+    <div id="map"></div>
+    <!-- Modal -->
+    <div class="modal fade" id="ex" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+				</button>
+                </div>
+                <div class="modal-body" style="height:700px;overflow:auto;">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+					close
+				</button>
+                    <button type="button" class="btn btn-primary">
+					submit
+				</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <%for( var i=0; i<test.length; i++){ %>
+        <input type="hidden" id=<%=test[i][0]%> value=
+        <%=test[i][1]%> >
+            <%}%>
+                <script>
+                </script>
+                <script src="javascripts/d3.v3.min.js"></script>
+                <script src="javascripts/topojson.v1.min.js"></script>
+                <script src="javascripts/map_active.js">
+                </script>
+</body>
+
+</html>

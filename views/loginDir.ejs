@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        html,
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        #logo {
+            height: 80px;
+            margin-left: 20px;
+        }
+        
+        .wrapper {
+            max-width: 1200px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20%;
+        }
+        
+        .right {
+            float: right !important;
+        }
+        /* Image zoom on hover + Overlay colour */
+        
+        .parent {
+            width: 45%;
+            margin: 20px;
+            height: 300px;
+            border: 1px solid rgb(102, 102, 102);
+            overflow: hidden;
+            position: relative;
+            float: left;
+            display: inline-block;
+            cursor: pointer;
+        }
+        
+        .child {
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            -webkit-transition: all .5s;
+            -moz-transition: all .5s;
+            -o-transition: all .5s;
+            transition: all .5s;
+        }
+        /* Several different images */
+        
+        .bg-one {
+            background-image: url('images/map.jpg');
+        }
+        
+        .bg-two {
+            background-image: url(http://s1.it.atcdn.net/wp-content/uploads/2015/08/2-London.jpg);
+        }
+        
+        a {
+            display: none;
+            font-size: 35px;
+            color: #ffffff !important;
+            font-family: sans-serif;
+            text-align: center;
+            text-decoration: none;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            height: 50px;
+            cursor: pointer;
+            /*text-decoration: none;*/
+        }
+        
+        .parent:hover .child,
+        .parent:focus .child {
+            -ms-transform: scale(1.2);
+            -moz-transform: scale(1.2);
+            -webkit-transform: scale(1.2);
+            -o-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+        
+        .parent:hover .child:before,
+        .parent:focus .child:before {
+            display: block;
+        }
+        
+        .parent:hover a,
+        .parent:focus a {
+            display: block;
+        }
+        
+        .child:before {
+            content: "";
+            display: none;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(99, 96, 96, 0.452);
+        }
+        
+        h1 {
+            color: white
+        }
+        /* Media Queries */
+        
+        @media screen and (max-width: 960px) {
+            .parent {
+                width: 100%;
+                margin: 20px 0px
+            }
+            .wrapper {
+                padding: 20px 20px;
+            }
+        }
+        
+        .hello {
+            display: none
+        }
+        
+        html {
+            height: 100%;
+        }
+        
+        body {
+            background-image: url('images/bg111.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100vh;
+        }
+        
+        .centered {
+            position: absolute;
+            top: 30vh;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <section>
+        <h1 class="centered" style="color:rgba(53, 52, 52, 0.904);font-size:40px">選擇瀏覽模式</h1>
+        <div class="wrapper">
+            <div class="parent" onclick="">
+                <div class="child bg-one">
+                    <a href="/map">全地圖模式</a>
+                </div>
+            </div>
+
+            <div class="parent right" onclick="">
+                <div class="child bg-two">
+                    <a href="/">各省份瀏覽</a>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+</body>
+
+</html>
